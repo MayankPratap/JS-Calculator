@@ -4,7 +4,7 @@ $(document).ready(function(){
 
    $('#poweron').click(function(){
 
-      $('#screen').empty();
+      $('#screen').val("");
       ans=0;
       console.log("Poweron");
       this.blur(); // Removes focus from button after clicking

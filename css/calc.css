@@ -1,0 +1,35 @@
+html{
+
+  height:100%;
+
+}
+
+body{
+
+   height:100%;
+   background-attachment:fixed;
+   background-color:#162234;
+
+}
+
+.header{
+
+   font-family:Lobster;
+   color:white;
+
+}
+
+#screen{
+
+    border-radius:10px;
+    border:5px solid orange;
+    background-color:#162234;
+    color:white;
+
+}
+
+.calc-buttons{
+
+    
+
+}

@@ -9,12 +9,13 @@ A calculator web app made using HTML,CSS and JavaScript.
  - I can restart my calculator using AC button.
  - It saves previous result and you can access it using ANS button.
  - Handles Divide by Zero Error. 
+ - Handles Negative Numbers.
 
 # Things learnt :-
 
  - Callback function on click events.
  - Converting Infix Expression to Postfix and then evaluating postfix expression on multidigit numbers.
  
-# To-Do :-
+# To do :- 
  
- - Implement same functionality for negative numbers and intermediate negative results.
+ - Parentheses Support.

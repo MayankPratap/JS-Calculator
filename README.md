@@ -13,5 +13,5 @@ A calculator web app made using HTML,CSS and JavaScript.
 # Things learnt :-
 
  - Callback function on click events.
- - Converting Infix Expression to Postfix and then evaluating postfix expression.
+ - Converting Infix Expression to Postfix and then evaluating postfix expression on multidigit numbers.
  

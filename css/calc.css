@@ -30,6 +30,16 @@ body{
 
 .calc-buttons{
 
-    
+    width:50px;
+
+}
+
+.container{
+
+   border-radius: 20px;
+   border:5px solid orange;
+   background-color: #162234;
+   padding-top:25px;
+   width:270px;
 
 }

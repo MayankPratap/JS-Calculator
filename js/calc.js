@@ -159,8 +159,12 @@ $(document).ready(function(){
         printed=0;
       }
       var content=$('#screen').val();
+      if(content)
+        console.log(content);
+      else  
+        console.log("NULL");
       $('#screen').val(content+'-');
-      console.log("Number 7");
+      //console.log("Number 7");
       console.log(content);
       this.blur();
 
@@ -261,7 +265,9 @@ $(document).ready(function(){
       var checkZeroError=0;
       var content=$('#screen').val();
       console.log("Equals");
-      console.log(content);
+      console.log("Final : "+content);
+      if(content[0] == '-' || content [0] == '+')
+        content = '0' + content;
       content=infixToPostfix(content);  // Converting infix mathematical expression to postfix
       ans=evaluatePostfix(content); // Evaluating postfix expression.
       function infixToPostfix(content){

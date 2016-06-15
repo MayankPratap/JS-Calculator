@@ -9,6 +9,7 @@ A calculator web app made using HTML,CSS and JavaScript.
  - I can restart my calculator using AC button.
  - It saves previous result and you can access it using ANS button.
  - Handles Divide by Zero Error. 
+ - Handles Negative Numbers.
 
 # Things learnt :-
 

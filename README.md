@@ -17,4 +17,4 @@ A calculator web app made using HTML,CSS and JavaScript.
  
 # To-Do :-
  
- - Implement same functionality for negative numbers and intermediate negative results.
+ - Parentheses Support.

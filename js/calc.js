@@ -166,13 +166,12 @@ $(document).ready(function(){
       else  
         console.log("NULL");
       $('#screen').val(content+'-');
-<<<<<<< HEAD
+
     //  console.log("Number 7");
   //    console.log(content);
-=======
       //console.log("Number 7");
-      console.log(content);
->>>>>>> 9ca62dfedd7a1ba7cfc71380cc74eadde5a6782e
+     // console.log(content);
+
       this.blur();
 
    });

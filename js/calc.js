@@ -161,9 +161,18 @@ $(document).ready(function(){
         printed=0;
       }
       var content=$('#screen').val();
+      if(content)
+        console.log(content);
+      else  
+        console.log("NULL");
       $('#screen').val(content+'-');
+<<<<<<< HEAD
     //  console.log("Number 7");
   //    console.log(content);
+=======
+      //console.log("Number 7");
+      console.log(content);
+>>>>>>> 9ca62dfedd7a1ba7cfc71380cc74eadde5a6782e
       this.blur();
 
    });
@@ -262,8 +271,14 @@ $(document).ready(function(){
    $('#equals').click(function(){
       var checkZeroError=0;
       var content=$('#screen').val();
+
   //    console.log("Equals");
   //    console.log(content);
+     // console.log("Equals");
+      //console.log("Final : "+content);
+      if(content[0] == '-' || content [0] == '+')
+        content = '0' + content;
+
       content=infixToPostfix(content);  // Converting infix mathematical expression to postfix
       ans=evaluatePostfix(content); // Evaluating postfix expression.
       function infixToPostfix(content){

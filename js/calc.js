@@ -3,6 +3,8 @@ $(document).ready(function(){
    // Attaching a callback function to click even
    var printed=0;  // Checks whther answer has been printed on screen.
 
+   //If answer has been printed on screen and now I click a new digit first I have to clear the screen.
+
    $('#screen').val("");  // On page reload calculator screen must be empty
 
    $('#poweron').click(function(){
@@ -18,8 +20,8 @@ $(document).ready(function(){
 
       var content=$('#screen').val();
       $('#screen').val(content.substr(0,content.length-1));
-      console.log("Clear");
-      console.log(content);
+    //  console.log("Clear");
+    //  console.log(content);
       this.blur();
 
    });
@@ -33,8 +35,8 @@ $(document).ready(function(){
       }
       var content=$('#screen').val();
       $('#screen').val(content+'%');
-      console.log("modulus");
-      console.log(content);
+    //  console.log("modulus");
+    //  console.log(content);
       this.blur();
    });
 
@@ -49,8 +51,8 @@ $(document).ready(function(){
 
      var content=$('#screen').val();
      $('#screen').val(content+'/');
-     console.log("/");
-     console.log(content);
+    // console.log("/");
+     //console.log(content);
      this.blur();
    });
 
@@ -64,8 +66,8 @@ $(document).ready(function(){
       }
 
       var content=$('#screen').val();
-      console.log("Number 7");
-      console.log(content);
+    //  console.log("Number 7");
+    //  console.log(content);
       $('#screen').val(content+'7');
       this.blur();
    });
@@ -80,8 +82,8 @@ $(document).ready(function(){
      }
       var content=$('#screen').val();
       $('#screen').val(content+'8');
-      console.log("Number 8");
-      console.log(content);
+    //  console.log("Number 8");
+    //  console.log(content);
       this.blur();
 
    });
@@ -95,8 +97,8 @@ $(document).ready(function(){
      }
      var content=$('#screen').val();
      $('#screen').val(content+'9');
-     console.log("Number 9");
-     console.log(content);
+    // console.log("Number 9");
+    // console.log(content);
 
      this.blur();
 
@@ -109,8 +111,8 @@ $(document).ready(function(){
       }
       var content=$('#screen').val();
       $('#screen').val(content+'*');
-      console.log("Multiply");
-      console.log(content);
+    //  console.log("Multiply");
+    //  console.log(content);
       this.blur();
 
    });
@@ -121,8 +123,8 @@ $(document).ready(function(){
      }
      var content=$('#screen').val();
      $('#screen').val(content+'4');
-     console.log("Number 4");
-     console.log(content);
+    // console.log("Number 4");
+    // console.log(content);
      this.blur();
 
    });
@@ -134,8 +136,8 @@ $(document).ready(function(){
      }
      var content=$('#screen').val();
      $('#screen').val(content+'5');
-     console.log("Number 5");
-     console.log(content);
+    // console.log("Number 5");
+    // console.log(content);
      this.blur();
 
    });
@@ -147,8 +149,8 @@ $(document).ready(function(){
       }
       var content=$('#screen').val();
       $('#screen').val(content+'6');
-      console.log("Number 6");
-      console.log(content);
+    //  console.log("Number 6");
+  //    console.log(content);
       this.blur();
 
    });
@@ -160,8 +162,8 @@ $(document).ready(function(){
       }
       var content=$('#screen').val();
       $('#screen').val(content+'-');
-      console.log("Number 7");
-      console.log(content);
+    //  console.log("Number 7");
+  //    console.log(content);
       this.blur();
 
    });
@@ -173,8 +175,8 @@ $(document).ready(function(){
       }
       var content=$('#screen').val();
       $('#screen').val(content+'1');
-      console.log("Number 1");
-      console.log(content);
+    //  console.log("Number 1");
+  //    console.log(content);
       this.blur();
 
    });
@@ -186,8 +188,8 @@ $(document).ready(function(){
       }
       var content=$('#screen').val();
       $('#screen').val(content+'2');
-      console.log("Number 2");
-      console.log(content);
+    //  console.log("Number 2");
+    //  console.log(content);
       this.blur();
 
    });
@@ -199,8 +201,8 @@ $(document).ready(function(){
        }
        var content=$('#screen').val();
        $('#screen').val(content+'3');
-       console.log("Number 3");
-       console.log(content);
+    //   console.log("Number 3");
+    //   console.log(content);
        this.blur();
 
    });
@@ -212,8 +214,8 @@ $(document).ready(function(){
      }
      var content=$('#screen').val();
      $('#screen').val(content+'+');
-     console.log("Plus");
-     console.log(content);
+  //   console.log("Plus");
+  //   console.log(content);
      this.blur();
 
    });
@@ -225,8 +227,8 @@ $(document).ready(function(){
      }
      var content=$('#screen').val();
      $('#screen').val(content+'.');
-     console.log("Dot");
-     console.log(content);
+  //   console.log("Dot");
+  //   console.log(content);
      this.blur();
 
    });
@@ -238,8 +240,8 @@ $(document).ready(function(){
      }
      var content=$('#screen').val();
      $('#screen').val(content+'0');
-     console.log("Zero");
-     console.log(content);
+  //   console.log("Zero");
+  //   console.log(content);
      this.blur();
 
 
@@ -252,16 +254,16 @@ $(document).ready(function(){
      }
      var content=$('#screen').val();
      $('#screen').val(content+ans.toString());
-     console.log("Ans");
-     console.log(content);
+  //   console.log("Ans");
+  //   console.log(content);
      this.blur();
    });
 
    $('#equals').click(function(){
       var checkZeroError=0;
       var content=$('#screen').val();
-      console.log("Equals");
-      console.log(content);
+  //    console.log("Equals");
+  //    console.log(content);
       content=infixToPostfix(content);  // Converting infix mathematical expression to postfix
       ans=evaluatePostfix(content); // Evaluating postfix expression.
       function infixToPostfix(content){
@@ -273,7 +275,6 @@ $(document).ready(function(){
         var priority={'+':0,'-':0,'*':1,'/':1,'%':1};
 
         var i;
-
         for(i=0;i<content.length;++i){
 
            // console.log(result.length);
@@ -302,13 +303,10 @@ $(document).ready(function(){
                 else
                     result.push(temp);
 
-
                }  // close to while(!stack...)
 
               stack.push(content[i]);
-
           }  // close to else;
-
 
           pre=i+1;
 
@@ -318,17 +316,12 @@ $(document).ready(function(){
 
      result.push(content.substr(pre,i-pre));
 
-
      while(stack.length>0){
-
         var temp=stack.pop();
         result.push(temp);
-
       }
 
-      console.log(result.length);
-
-
+  //    console.log(result.length);
       return result;
    }
 
@@ -400,11 +393,11 @@ $(document).ready(function(){
 
 
 
-      console.log(ans);
+    //  console.log(ans);
       printed=1;
       $('#screen').val("");
       if(checkZeroError==1)
-        $('#screen').val("Divide by zero kills.");
+        $('#screen').val("Dividing by zero kills.");
       else
         $('#screen').val(ans);
       this.blur();

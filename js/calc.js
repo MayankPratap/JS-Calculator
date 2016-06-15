@@ -275,9 +275,7 @@ $(document).ready(function(){
   //    console.log(content);
      // console.log("Equals");
       //console.log("Final : "+content);
-      if(content[0] == '-' || content [0] == '+')
-        content = '0' + content;
-
+     
       content=infixToPostfix(content);  // Converting infix mathematical expression to postfix
       ans=evaluatePostfix(content); // Evaluating postfix expression.
       function infixToPostfix(content){
@@ -286,119 +284,143 @@ $(document).ready(function(){
         var stack=[];
 
         var pre=0;
+
         var priority={'+':0,'-':0,'*':1,'/':1,'%':1};
 
         var i;
+
         for(i=0;i<content.length;++i){
 
-           // console.log(result.length);
-           //console.log(i);
-           //  console.log(stack.length);
-           var j=stack.length;
+          // console.log(result.length);
+         //console.log(i);
+         //  console.log(stack.length);
+         var j=stack.length;
 
-           if(content[i]=='+' || content[i]=='-' || content[i]=='*' || content[i]=='/' || content[i]=='%'){
-             result.push(content.substr(pre,i-pre));  // Get operand before this operator
+         if(content[i]=='+' || content[i]=='-' || content[i]=='*' || content[i]=='/' || content[i]=='%'){
+          
+            if(content[i]=='+' || content[i]=='-'){
+
+              if(content[i-1]=='+' || content[i-1]=='-' || content[i-1]=='*' || content[i-1]=='/' || content[i-1]=='%' || i==0){
+
+
+                   pre=i;
+                   continue;
+              }              
+
+            }
+           
+           result.push(content.substr(pre,i-pre));
+
 
            if(stack.length===0)
               stack.push(content[i]);
 
            else{
 
-             while(stack.length>0){
+              while(stack.length>0){
 
-                var temp=stack.pop();
+                 var temp=stack.pop();
 
-                if(priority[temp]<priority[content[i]]){
+                 if(priority[temp]<priority[content[i]]){
 
                     stack.push(temp);
                     break;
-                }  // close to if
+                 }  // close to if
 
-                else
+                 else
                     result.push(temp);
 
-               }  // close to while(!stack...)
+
+              }  // close to while(!stack...)
+
+
 
               stack.push(content[i]);
-          }  // close to else;
 
-          pre=i+1;
+           }  // close to else;
 
-        }  // close  to bahar waala if
+           pre=i+1;
+
+       }  // close  to bahar waala if
 
      }  // close to for  loop
 
-     result.push(content.substr(pre,i-pre));
+      result.push(content.substr(pre,i-pre));
 
-     while(stack.length>0){
-        var temp=stack.pop();
-        result.push(temp);
-      }
 
-  //    console.log(result.length);
-      return result;
-   }
+      while(stack.length>0){
 
-   function evaluatePostfix(content){
+         var temp=stack.pop();
+         result.push(temp);
 
-     var stack=[];
+       }
 
-     for(var i=0;i<content.length;++i){
-       console.log(content[i]);
-
-     if(content[i]=='+' || content[i]=='-' || content[i]=='*' || content[i]=='/' || content[i]=='%'){
-
-         var operand1=stack.pop();
-         var operand2=stack.pop();
-
-         operand1=parseFloat(operand1);
-         operand2=parseFloat(operand2);
-
-         var result;
-
-         if(content[i]=='+')
-            result=operand1+operand2;
-         else if(content[i]=='-')
-            result=operand2-operand1;
-
-         else if(content[i]=='*')
-            result=operand1*operand2;
-         else if(content[i]=='/'){
-            // Place check for divide by zero error
-            if(operand1==0){
-
-                checkZeroError=1;
-                break;
-
-            }
-
-            result=operand2/operand1;
-
-         }
-         else if(content[i]=='%'){
-
-            // Place check for divide by zero error
-            if(operand1==0){
-
-               checkZeroError=1;
-               break;
-
-            }
-
-            result=operand2%operand1;
-         }
-
-         stack.push(result.toString());
-
-      }
-
-      else{
-
-         stack.push(content[i]);
-
-      }
-
+       console.log(result.length);
+       return result;
     }
+
+//if(content[0] == '-' || content [0] == '+')
+  //  content = '0' + content;
+
+     function evaluatePostfix(content){
+
+       var stack=[];
+
+       for(var i=0;i<content.length;++i){
+         // console.log(content[i]);
+
+          if(content[i]=='+' || content[i]=='-' || content[i]=='*' || content[i]=='/' || content[i]=='%'){
+
+             var operand1=stack.pop();
+             var operand2=stack.pop();
+
+             operand1=parseFloat(operand1);
+             operand2=parseFloat(operand2);
+
+             var result;
+
+             if(content[i]=='+')
+               result=operand1+operand2;
+             else if(content[i]=='-')
+               result=operand2-operand1;
+             else if(content[i]=='*')
+               result=operand1*operand2;
+             else if(content[i]=='/'){
+               // Place check for divide by zero error
+                if(operand1==0){
+
+                  checkZeroError=1;
+                  break;
+
+                }
+
+                result=operand2/operand1;
+
+             }
+             else if(content[i]=='%'){
+
+               // Place check for divide by zero error
+               if(operand1==0){
+
+                 checkZeroError=1;
+                 break;
+
+               }
+
+               result=operand2%operand1;
+             }
+
+             stack.push(result.toString());
+
+          }
+
+          else{
+
+             stack.push(content[i]);
+
+          }
+
+      }
 
       var ans=stack.pop();
       return ans;
